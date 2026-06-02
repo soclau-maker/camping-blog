@@ -1,0 +1,110 @@
+---
+import { Menu, X, Sun, Moon, Mountain, ChevronRight } from 'lucide-astro';
+
+const navItems = [
+	{ name: 'Khám phá', href: '/category/dia-diem' },
+	{ name: 'Kinh nghiệm', href: '/category/kinh-nghiem' },
+	{ name: 'Kỹ năng', href: '/category/goc-ky-nang' },
+	{ name: 'Review', href: '/category/review-thiet-bi' },
+];
+---
+
+<header class="fixed top-0 z-50 w-full glass border-b border-white/10">
+	<div class="container mx-auto px-6 h-20 flex items-center justify-between">
+		<a href="/" class="flex items-center gap-3 group z-50">
+			<div class="p-2 bg-primary-500 rounded-xl group-hover:rotate-6 transition-transform shadow-lg shadow-primary-500/30">
+				<Mountain class="w-6 h-6 text-white" />
+			</div>
+			<span class="text-2xl font-black tracking-tighter text-gradient">
+				TRẠI VIỆT
+			</span>
+		</a>
+
+		<!-- Desktop Nav -->
+		<nav class="hidden lg:flex items-center gap-10">
+			{navItems.map((item) => (
+				<a href={item.href} class="text-sm font-bold tracking-wide uppercase hover:text-primary-500 transition-colors">
+					{item.name}
+				</a>
+			))}
+		</nav>
+
+		<div class="flex items-center gap-2 z-50">
+			<button id="theme-toggle" class="p-3 hover:bg-white/10 rounded-2xl transition-all" aria-label="Toggle Theme">
+				<Sun class="w-5 h-5 hidden dark:block text-accent-500" />
+				<Moon class="w-5 h-5 block dark:hidden text-primary-500" />
+			</button>
+			<a href="/contact" class="hidden sm:block px-6 py-2.5 bg-primary-950 dark:bg-primary-100 text-white dark:text-primary-950 text-sm font-bold rounded-2xl hover:scale-105 transition-transform shadow-xl">
+				Liên hệ
+			</a>
+			<button id="mobile-menu-btn" class="lg:hidden p-3 hover:bg-white/10 rounded-2xl transition-all" aria-label="Menu">
+				<Menu id="menu-icon" class="w-6 h-6" />
+				<X id="close-icon" class="w-6 h-6 hidden" />
+			</button>
+		</div>
+	</div>
+
+	<!-- Mobile Menu Overlay -->
+	<div id="mobile-menu" class="fixed inset-0 bg-natural-50 dark:bg-natural-950 z-40 translate-x-full transition-transform duration-500 ease-in-out lg:hidden pt-24 px-6">
+		<nav class="flex flex-col gap-4">
+			{navItems.map((item) => (
+				<a href={item.href} class="flex items-center justify-between p-6 bg-white dark:bg-natural-900 rounded-[2rem] text-xl font-black tracking-tighter border border-natural-200 dark:border-natural-800">
+					{item.name}
+					<ChevronRight class="w-6 h-6 text-primary-500" />
+				</a>
+			))}
+			<a href="/contact" class="flex items-center justify-between p-6 bg-primary-500 text-white rounded-[2rem] text-xl font-black tracking-tighter mt-4 shadow-xl shadow-primary-500/20">
+				Liên hệ với chúng tôi
+				<ChevronRight class="w-6 h-6" />
+			</a>
+		</nav>
+	</div>
+</header>
+
+<div class="h-20"></div>
+
+<script>
+	// Theme Toggle
+	const themeToggle = document.getElementById('theme-toggle');
+	themeToggle?.addEventListener('click', () => {
+		const element = document.documentElement;
+		element.classList.toggle('dark');
+		localStorage.setItem('theme', element.classList.contains('dark') ? 'dark' : 'light');
+	});
+
+	// Mobile Menu Toggle
+	const menuBtn = document.getElementById('mobile-menu-btn');
+	const mobileMenu = document.getElementById('mobile-menu');
+	const menuIcon = document.getElementById('menu-icon');
+	const closeIcon = document.getElementById('close-icon');
+
+	menuBtn?.addEventListener('click', () => {
+		const isOpen = mobileMenu?.classList.contains('translate-x-0');
+		
+		if (isOpen) {
+			mobileMenu?.classList.remove('translate-x-0');
+			mobileMenu?.classList.add('translate-x-full');
+			menuIcon?.classList.remove('hidden');
+			closeIcon?.classList.add('hidden');
+			document.body.style.overflow = '';
+		} else {
+			mobileMenu?.classList.remove('translate-x-full');
+			mobileMenu?.classList.add('translate-x-0');
+			menuIcon?.classList.add('hidden');
+			closeIcon?.classList.remove('hidden');
+			document.body.style.overflow = 'hidden';
+		}
+	});
+
+	// Close menu on link click
+	const mobileLinks = mobileMenu?.querySelectorAll('a');
+	mobileLinks?.forEach(link => {
+		link.addEventListener('click', () => {
+			mobileMenu?.classList.remove('translate-x-0');
+			mobileMenu?.classList.add('translate-x-full');
+			menuIcon?.classList.remove('hidden');
+			closeIcon?.classList.add('hidden');
+			document.body.style.overflow = '';
+		});
+	});
+</script>

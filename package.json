@@ -1,0 +1,30 @@
+{
+  "name": "camping-blog",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@esbuild/android-arm64": "^0.27.7",
+    "@rolldown/binding-android-arm64": "^1.0.3",
+    "@rollup/rollup-android-arm64": "^4.61.0",
+    "@tailwindcss/oxide-android-arm64": "^4.3.0",
+    "astro": "^6.4.2",
+    "lightningcss-android-arm64": "^1.32.0",
+    "rolldown": "^1.0.3",
+    "vite": "^7.3.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.19",
+    "@tailwindcss/vite": "^4.3.0",
+    "lucide-astro": "^0.556.0",
+    "tailwindcss": "^4.3.0"
+  }
+}

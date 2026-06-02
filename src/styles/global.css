@@ -1,0 +1,55 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-primary-50: #f2f8f3;
+  --color-primary-100: #e2ede4;
+  --color-primary-200: #c9dbcc;
+  --color-primary-300: #a2bea8;
+  --color-primary-400: #769a7f;
+  --color-primary-500: #557c5f; /* Forest Green */
+  --color-primary-600: #42634b;
+  --color-primary-700: #37503e;
+  --color-primary-800: #2e4133;
+  --color-primary-900: #27372c;
+  --color-primary-950: #151e18;
+
+  --color-accent-500: #d4a373; /* Earthy Gold */
+
+  --color-natural-50: #fdfcfb;
+  --color-natural-100: #f7f5f2;
+  --color-natural-200: #eeebe5;
+  --color-natural-300: #ddd8cf;
+  --color-natural-400: #b9b1a1;
+  --color-natural-500: #968c7a;
+  --color-natural-600: #7b7161;
+  --color-natural-700: #665d50;
+  --color-natural-800: #544d42;
+  --color-natural-900: #464038;
+  --color-natural-950: #26231f;
+
+  --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-natural-50 text-natural-900 dark:bg-natural-950 dark:text-natural-100 transition-colors duration-500 antialiased selection:bg-primary-500/20;
+  }
+}
+
+/* Modern Utilities */
+.glass {
+  @apply bg-white/70 dark:bg-natural-950/70 backdrop-blur-xl border border-white/20 dark:border-white/5;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-br from-primary-800 to-primary-500 dark:from-primary-200 dark:to-primary-500;
+}
+
+.hover-lift {
+  @apply transition-transform duration-500 ease-out hover:-translate-y-2;
+}
+
+.prose {
+  @apply max-w-none prose-headings:font-bold prose-p:leading-relaxed prose-img:rounded-3xl shadow-2xl;
+}

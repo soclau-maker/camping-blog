@@ -1,0 +1,61 @@
+---
+import { Facebook, Twitter, Instagram, Mail } from 'lucide-astro';
+---
+
+<footer class="bg-natural-100 dark:bg-natural-900 border-t border-natural-200 dark:border-natural-800 pt-12 pb-8">
+	<div class="container mx-auto px-4">
+		<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+			<div class="col-span-1 md:col-span-1">
+				<h3 class="text-lg font-bold mb-4">Trại Việt Blog</h3>
+				<p class="text-sm text-natural-600 dark:text-natural-400 mb-4">
+					Chia sẻ niềm đam mê cắm trại và khám phá thiên nhiên Việt Nam. Đồng hành cùng bạn trong mỗi chuyến đi.
+				</p>
+				<div class="flex gap-4">
+					<a href="#" class="text-natural-600 hover:text-primary-600 transition-colors"><Facebook class="w-5 h-5" /></a>
+					<a href="#" class="text-natural-600 hover:text-primary-600 transition-colors"><Twitter class="w-5 h-5" /></a>
+					<a href="#" class="text-natural-600 hover:text-primary-600 transition-colors"><Instagram class="w-5 h-5" /></a>
+				</div>
+			</div>
+			
+			<div>
+				<h3 class="text-lg font-bold mb-4">Danh mục</h3>
+				<ul class="space-y-2 text-sm text-natural-600 dark:text-natural-400">
+					<li><a href="/category/dia-diem" class="hover:text-primary-600">Địa điểm cắm trại</a></li>
+					<li><a href="/category/kinh-nghiem" class="hover:text-primary-600">Kinh nghiệm đi trại</a></li>
+					<li><a href="/category/goc-ky-nang" class="hover:text-primary-600">Góc kỹ năng sinh tồn</a></li>
+					<li><a href="/category/review-thiet-bi" class="hover:text-primary-600">Review thiết bị</a></li>
+				</ul>
+			</div>
+
+			<div>
+				<h3 class="text-lg font-bold mb-4">Liên kết</h3>
+				<ul class="space-y-2 text-sm text-natural-600 dark:text-natural-400">
+					<li><a href="/about" class="hover:text-primary-600">Về chúng tôi</a></li>
+					<li><a href="/contact" class="hover:text-primary-600">Liên hệ công việc</a></li>
+					<li><a href="/policy" class="hover:text-primary-600">Chính sách bảo mật</a></li>
+				</ul>
+			</div>
+
+			<div>
+				<h3 class="text-lg font-bold mb-4">Đăng ký nhận tin</h3>
+				<p class="text-sm text-natural-600 dark:text-natural-400 mb-4">
+					Nhận những bài viết mới nhất và ưu đãi từ các đối tác.
+				</p>
+				<form class="flex gap-2">
+					<input 
+						type="email" 
+						placeholder="Email của bạn..." 
+						class="flex-grow px-3 py-2 text-sm rounded-lg bg-white dark:bg-natural-800 border border-natural-300 dark:border-natural-700 focus:outline-none focus:ring-2 focus:ring-primary-500"
+					/>
+					<button class="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+						<Mail class="w-4 h-4" />
+					</button>
+				</form>
+			</div>
+		</div>
+		
+		<div class="border-t border-natural-200 dark:border-natural-800 pt-8 text-center text-sm text-natural-500">
+			<p>&copy; {new URL(Astro.url).hostname} 2026. Thiết kế bởi Trại Việt. Bảo lưu mọi quyền.</p>
+		</div>
+	</div>
+</footer>

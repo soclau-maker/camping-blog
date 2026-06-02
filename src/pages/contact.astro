@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Mail, Phone, MapPin, Send } from 'lucide-astro';
+
+const contactInfo = [
+	{ icon: Mail, label: 'Email', value: 'hello@traivietblog.vn' },
+	{ icon: Phone, label: 'Hotline', value: '0901 234 567' },
+	{ icon: MapPin, label: 'Văn phòng', value: 'Quận 1, TP. Hồ Chí Minh' },
+];
+---
+
+<BaseLayout title="Liên hệ">
+	<section class="py-20">
+		<div class="container mx-auto px-4">
+			<div class="max-w-5xl mx-auto">
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-20">
+					<div>
+						<h1 class="text-4xl font-bold mb-6">Liên hệ với chúng tôi</h1>
+						<p class="text-lg text-natural-600 dark:text-natural-400 mb-12">
+							Bạn có câu hỏi, ý tưởng hợp tác hay muốn chia sẻ địa điểm cắm trại mới? Đừng ngần ngại gửi tin nhắn cho Trại Việt.
+						</p>
+						
+						<div class="space-y-8">
+							{contactInfo.map((item) => (
+								<div class="flex items-center gap-6">
+									<div class="w-12 h-12 rounded-2xl bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-600 shrink-0">
+										<item.icon class="w-6 h-6" />
+									</div>
+									<div>
+										<div class="text-sm text-natural-500 mb-1">{item.label}</div>
+										<div class="font-bold">{item.value}</div>
+									</div>
+								</div>
+							))}
+						</div>
+					</div>
+					
+					<div class="bg-white dark:bg-natural-900 p-8 md:p-12 rounded-[2.5rem] shadow-xl border border-natural-200 dark:border-natural-800">
+						<form class="space-y-6">
+							<div class="grid grid-cols-2 gap-6">
+								<div class="col-span-2 sm:col-span-1">
+									<label class="block text-sm font-bold mb-2">Họ và tên</label>
+									<input type="text" placeholder="Nguyễn Văn A" class="w-full px-4 py-3 rounded-xl bg-natural-50 dark:bg-natural-800 border border-natural-200 dark:border-natural-700 focus:outline-none focus:ring-2 focus:ring-primary-500" />
+								</div>
+								<div class="col-span-2 sm:col-span-1">
+									<label class="block text-sm font-bold mb-2">Email</label>
+									<input type="email" placeholder="email@vi-du.com" class="w-full px-4 py-3 rounded-xl bg-natural-50 dark:bg-natural-800 border border-natural-200 dark:border-natural-700 focus:outline-none focus:ring-2 focus:ring-primary-500" />
+								</div>
+							</div>
+							<div>
+								<label class="block text-sm font-bold mb-2">Chủ đề</label>
+								<select class="w-full px-4 py-3 rounded-xl bg-natural-50 dark:bg-natural-800 border border-natural-200 dark:border-natural-700 focus:outline-none focus:ring-2 focus:ring-primary-500">
+									<option>Hợp tác nội dung</option>
+									<option>Quảng cáo</option>
+									<option>Góp ý địa điểm</option>
+									<option>Hỗ trợ kỹ thuật</option>
+								</select>
+							</div>
+							<div>
+								<label class="block text-sm font-bold mb-2">Lời nhắn</label>
+								<textarea rows="4" placeholder="Nội dung bạn muốn nhắn gửi..." class="w-full px-4 py-3 rounded-xl bg-natural-50 dark:bg-natural-800 border border-natural-200 dark:border-natural-700 focus:outline-none focus:ring-2 focus:ring-primary-500"></textarea>
+							</div>
+							<button type="button" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg shadow-primary-500/30">
+								Gửi tin nhắn <Send class="w-5 h-5" />
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</BaseLayout>
